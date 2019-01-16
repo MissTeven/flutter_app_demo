@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:test_flutter_app/common/config/Config.dart';
-import 'package:test_flutter_app/common/local/LocalStorage.dart';
+import 'package:test_flutter_app/common/local/SPManager.dart';
 import 'package:test_flutter_app/common/net/Code.dart';
 import 'dart:collection';
 import 'package:connectivity/connectivity.dart';
@@ -119,14 +119,14 @@ class HttpManager {
   ///清除授权
   static clearAuthorization() {
     optionParams["authorizationCode"] = null;
-    LocalStorage.remove(Config.TOKEN_KEY);
+    SPManager.remove(Config.TOKEN_KEY);
   }
 
   ///获取授权token
   static getAuthorization() async {
-    String token = await LocalStorage.get(Config.TOKEN_KEY);
+    String token = await SPManager.get(Config.TOKEN_KEY);
     if (token == null) {
-      String basic = await LocalStorage.get(Config.USER_BASIC_CODE);
+      String basic = await SPManager.get(Config.USER_BASIC_CODE);
       if (basic == null) {
         //提示输入账号密码
       } else {
