@@ -7,11 +7,11 @@ part of 'User.dart';
 // **************************************************************************
 
 User _$UserFromJson(Map<String, dynamic> json) {
-  return new User()
-    ..name = json['name'] as String
-    ..address = json['address'] as String
-    ..age = json['age'] as int
-    ..sex = json['sex'] as int;
+  return new User(
+      name: json['name'] as String,
+      address: json['address'] as String,
+      age: json['age'] as int,
+      sex: json['sex'] as int);
 }
 
 abstract class _$UserSerializerMixin {

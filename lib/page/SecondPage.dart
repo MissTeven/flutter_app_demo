@@ -47,7 +47,6 @@ class SecondPageState extends State<SecondPage> {
         );
       },
     );
-    ;
   }
 
   void queryUserFromDB() async {

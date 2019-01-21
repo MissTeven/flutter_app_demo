@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
         itemBuilder: ({dynamic item, int index}) {
           //设置分割线
 //          if (index.isOdd) return new Divider();
-          return InkWell(
+          return GestureDetector(
             child: Card(
               child: Container(
                 height: 100,
@@ -77,3 +77,14 @@ class HomePage extends StatelessWidget {
     }));
   }
 }
+class CounterDisplay extends StatelessWidget {
+  CounterDisplay({this.count});
+
+  final int count;
+
+  @override
+  Widget build(BuildContext context) {
+    return new Text('Count: $count');
+  }
+}
+

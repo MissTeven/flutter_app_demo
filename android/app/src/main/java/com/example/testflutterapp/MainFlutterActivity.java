@@ -25,6 +25,7 @@ public class MainFlutterActivity extends FlutterActivity {
     public static void startAction(Context context) {
         Intent intent = new Intent(context, MainFlutterActivity.class);
         context.startActivity(intent);
+
     }
 
     @Override

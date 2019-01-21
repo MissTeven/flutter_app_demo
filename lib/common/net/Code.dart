@@ -17,10 +17,11 @@ class Code {
   static final EventBus eventBus = new EventBus();
 
   static errorHandleFunction(code, message, noTip) {
-    if(noTip) {
+    if (noTip) {
       return message;
     }
     eventBus.fire(new HttpErrorEvent(code, message));
     return message;
   }
 }
+

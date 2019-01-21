@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:sqflite/sqflite.dart';
-import 'package:test_flutter_app/common/config/Config.dart';
 import 'package:test_flutter_app/common/db/BaseProvider.dart';
 import 'package:test_flutter_app/common/model/User.dart';
 
@@ -48,6 +45,13 @@ class UserProvider extends BaseProvider {
 
   Future delete(String userName) async {
     Database database = await getDataBase();
+    return database
+        .delete(name, where: "$columnName = ?", whereArgs: [userName]);
+  }
+
+  Future update(String userName, Map map) async {
+    Database database = await getDataBase();
+    database.update(name, map, where: "$columnName = ?", whereArgs: [userName]);
     return database
         .delete(name, where: "$columnName = ?", whereArgs: [userName]);
   }

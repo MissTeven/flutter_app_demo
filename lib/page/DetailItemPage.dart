@@ -15,12 +15,12 @@ class DetailItemPage extends StatefulWidget {
 
 class _DetailItemPageState extends State<DetailItemPage> {
   final TextEditingController textEditingController =
-      new TextEditingController();
+  new TextEditingController();
   static const MethodChannel methodChannel =
-      MethodChannel('testGotoNativeActivity');
+  MethodChannel('testGotoNativeActivity');
   static const EventChannel eventChannel = EventChannel('testEventChannel');
   static const BasicMessageChannel<String> messageChannel =
-      BasicMessageChannel<String>("messageChannel", StringCodec());
+  BasicMessageChannel<String>("messageChannel", StringCodec());
 
   _sendMsg() {
     String msg = textEditingController.text;
@@ -52,14 +52,15 @@ class _DetailItemPageState extends State<DetailItemPage> {
     debugger(when: Config.DEBUG_BROKEN_Line > Config.DEBUG_BROKEN_BASE);
     String replyMsg = "";
     return replyMsg;
+
   }
 
   void _event(event) {
     print(event);
     Navigator.push(context,
         new MaterialPageRoute(builder: (BuildContext context) {
-      return TestPage();
-    }));
+          return TestPage();
+        }));
   }
 
   @override
@@ -74,7 +75,7 @@ class _DetailItemPageState extends State<DetailItemPage> {
       ),
       body: new Center(
         child: new Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             new TextField(
               controller: textEditingController,

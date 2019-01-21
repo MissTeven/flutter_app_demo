@@ -3,7 +3,6 @@ import 'package:test_flutter_app/common/redux/UserReducer.dart';
 
 class JDouState {
   User user;
-
   JDouState({this.user});
 }
 
