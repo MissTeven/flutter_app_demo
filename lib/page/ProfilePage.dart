@@ -38,7 +38,7 @@ class ProfilePageState extends State<ProfilePage> {
                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
                 ),
                 RaisedButton(
-                  child: new Text("DONE"),
+                  child: new Text("添加数据"),
                   onPressed: () {
                     _saveUserName(_editingController.text);
                   },

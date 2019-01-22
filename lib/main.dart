@@ -5,8 +5,11 @@ import 'package:flutter/services.dart';
 import 'package:redux/redux.dart';
 import 'package:test_flutter_app/common/model/User.dart';
 import 'package:test_flutter_app/common/redux/JDouState.dart';
+import 'package:test_flutter_app/localization/JDouLocalizations.dart';
+import 'package:test_flutter_app/localization/JDouLocalizationsDelegate.dart';
 import 'package:test_flutter_app/page/MainPage.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,6 +30,16 @@ class MyApp extends StatelessWidget {
     return StoreProvider<JDouState>(
         store: store,
         child: MaterialApp(
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            JDouLocalizationsDelegate.delegate,
+          ],
+          supportedLocales: [
+            const Locale('zh', 'CH'), // 中文
+            const Locale('en', 'US'), // English
+            // ... other locales the app supports
+          ],
           title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: Colors.blue,
@@ -34,4 +47,6 @@ class MyApp extends StatelessWidget {
           routes: {MainPage.sName: (context) => MainPage()},
         ));
   }
+
+  Localizations localizations;
 }

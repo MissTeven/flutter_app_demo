@@ -30,7 +30,12 @@ dependencies:
   flutter_spinkit: ^2.0.1
   flutter_redux: ^0.5.2
   sqflite: ^0.12.2+1
-
+   #提供路径
+  path_provider: ^0.4.1
+  #提供了动态权限申请
+  permission_handler: '^2.1.2'
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:

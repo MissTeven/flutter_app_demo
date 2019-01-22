@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -7,6 +6,9 @@ import 'package:test_flutter_app/common/config/Config.dart';
 import 'package:test_flutter_app/common/db/provider/user/UserProvider.dart';
 import 'package:test_flutter_app/common/model/User.dart';
 import 'package:test_flutter_app/common/redux/JDouState.dart';
+
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class SecondPage extends StatefulWidget {
   @override
@@ -38,9 +40,15 @@ class SecondPageState extends State<SecondPage> {
                 ? user.name
                 : ""),
             RaisedButton(
-              child: new Text("DONE"),
+              child: new Text("显示数据库数据"),
               onPressed: () {
                 queryUserFromDB();
+              },
+            ),
+            RaisedButton(
+              child: new Text("请求存储权限"),
+              onPressed: () {
+                requestWriteExternalStorage();
               },
             )
           ],
@@ -60,4 +68,22 @@ class SecondPageState extends State<SecondPage> {
       }
     }
   }
+
+  void requestWriteExternalStorage() async {
+    Map<PermissionGroup, PermissionStatus> permissions =
+        await PermissionHandler().requestPermissions([PermissionGroup.storage]);
+    print(permissions[PermissionGroup.storage].toString());
+  }
+
+  void checkWriteExternalStorage() async {
+    PermissionStatus permission = await PermissionHandler()
+        .checkPermissionStatus(PermissionGroup.storage);
+    print(permission.toString());
+  }
+
+  void openAppPermissionSetting() async {
+    bool isOpened = await PermissionHandler().openAppSettings();
+  }
+
+
 }

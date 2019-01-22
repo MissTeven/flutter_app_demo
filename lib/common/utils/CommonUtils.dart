@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:test_flutter_app/common/string/JDouStringBase.dart';
-import 'package:test_flutter_app/localization/DefaultLocalizations.dart';
+import 'package:test_flutter_app/localization/JDouLocalizations.dart';
 /**
  * 通用逻辑
  * Created by guoshuyu

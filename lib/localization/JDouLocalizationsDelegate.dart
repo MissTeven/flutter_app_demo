@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:test_flutter_app/localization/DefaultLocalizations.dart';
+import 'package:test_flutter_app/localization/JDouLocalizations.dart';
 
 /**
  * 多语言代理
