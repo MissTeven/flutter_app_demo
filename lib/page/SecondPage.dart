@@ -2,12 +2,9 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:test_flutter_app/common/config/Config.dart';
 import 'package:test_flutter_app/common/db/provider/user/UserProvider.dart';
 import 'package:test_flutter_app/common/model/User.dart';
 import 'package:test_flutter_app/common/redux/JDouState.dart';
-
-import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class SecondPage extends StatefulWidget {

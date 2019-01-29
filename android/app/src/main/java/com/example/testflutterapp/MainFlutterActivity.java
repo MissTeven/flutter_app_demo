@@ -10,6 +10,12 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.testflutterapp.event.PushEvent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.Map;
 import java.util.Observable;
 import java.util.concurrent.TimeUnit;
@@ -92,6 +98,14 @@ public class MainFlutterActivity extends FlutterActivity {
 //                }
 //            }
 //        });
+        EventBus.getDefault().register(this);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
     }
 
     @Override
@@ -99,6 +113,13 @@ public class MainFlutterActivity extends FlutterActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 200 && resultCode == RESULT_OK) {
             mEventSink.success(1);
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onAcceptEvent(PushEvent event) {
+        if (mEventSink != null) {
+            mEventSink.success(event.toString());
         }
     }
 

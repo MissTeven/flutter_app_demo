@@ -44,6 +44,17 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [
+                GETUI_APP_ID    : "StPDKaQJky9kyxPR38YLE9",
+                GETUI_APP_KEY   : "k3OzEUWbg1A1Wi9pwsramA",
+                GETUI_APP_SECRET: "v8wJPQCdqV9yTqPRRcAAc1"
+        ]
+
+        ndk{
+            abiFilters "armeabi", "armeabi-v7a", "x86"
+        }
+
     }
 
     buildTypes {
@@ -53,6 +64,7 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
 }
 
 flutter {
@@ -78,4 +90,8 @@ dependencies {
     // RxJava
     implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+    implementation 'com.getui:sdk:2.13.0.0'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
 }
